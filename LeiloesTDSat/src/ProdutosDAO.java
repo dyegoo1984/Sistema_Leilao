@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
@@ -18,7 +19,7 @@ public class ProdutosDAO {
     conectaDAO cd;
     PreparedStatement prep;
     ResultSet resultset;
-    ArrayList<ProdutosDTO> listagem = new ArrayList<>();
+    
     
     public boolean conectar(){
         try {
@@ -61,9 +62,27 @@ public class ProdutosDAO {
         
     }
     
-    public ArrayList<ProdutosDTO> listarProdutos(){
+    public List<ProdutosDTO> listarProdutos(){
+        try{
+            prep = conn.prepareStatement("SELECT * FROM PRODUTOS");
+            resultset = prep.executeQuery();
+            List<ProdutosDTO> listagem = new ArrayList<>();
+            
+            while(resultset.next()){
+                ProdutosDTO produto = new ProdutosDTO();
+                produto.setId(resultset.getInt("id"));
+                produto.setNome(resultset.getString("nome"));
+                produto.setValor(resultset.getFloat("valor"));
+                produto.setStatus(resultset.getString("status"));
+                
+                listagem.add(produto);
+            }
+            return listagem;
+        }
+        catch(SQLException ex){
+            return null;
+        }
         
-        return listagem;
     }
     
     
