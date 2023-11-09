@@ -1,5 +1,4 @@
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -155,7 +154,9 @@ public class listagemVIEW extends javax.swing.JFrame {
 
         ProdutosDAO produtosdao = new ProdutosDAO();
 
-        //produtosdao.venderProduto(Integer.parseInt(id));
+        produtosdao.conectar();
+        produtosdao.venderProduto(Integer.parseInt(id));
+        produtosdao.desconectar();
         listarProdutos();
     }//GEN-LAST:event_btnVenderActionPerformed
 
