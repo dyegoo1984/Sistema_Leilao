@@ -1,5 +1,4 @@
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -39,7 +38,7 @@ public class listagemVIEW extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         btnVendas = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
         jLabel1.setText("Lista de Produtos");
@@ -155,7 +154,9 @@ public class listagemVIEW extends javax.swing.JFrame {
 
         ProdutosDAO produtosdao = new ProdutosDAO();
 
-        //produtosdao.venderProduto(Integer.parseInt(id));
+        produtosdao.conectar();
+        produtosdao.venderProduto(Integer.parseInt(id));
+        produtosdao.desconectar();
         listarProdutos();
     }//GEN-LAST:event_btnVenderActionPerformed
 
@@ -164,8 +165,8 @@ public class listagemVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        //vendasVIEW vendas = new vendasVIEW();
-        //vendas.setVisible(true);
+        vendasVIEW vendas = new vendasVIEW();
+        vendas.setVisible(true);
     }//GEN-LAST:event_btnVendasActionPerformed
 
     /**
