@@ -1,8 +1,6 @@
-# UC11_Atividade_2
+<h1>Sistema para gestão de lances em leilão</h1>
 
-Projeto: LeiloesTDSat
+<p><b>- Autor:</b>Diego Oliveira</p>
+<p><b>- Atividade do Curso Técnico em Desenvolvimento de Sistemas Senac-EAD</b></p><br>
 
-Descrição: Sistema informatizado para casa de leilões.
-
-Tecnologias: Java e MySQL.
- 
+<p>Banco de dados em MySQL, app desktop desenvilvido em java, telas feitas com java swing</p>
